@@ -1,0 +1,28 @@
+﻿@inherits CharacterListComponentBase
+@rendermode InteractiveAuto
+@using ComicManager.Common.DTO.Character
+@using ComicManager.UI.Client.Components
+
+@page "/characters"
+
+<MyMudProviders />
+
+<MudTable ServerData="@(new Func<TableState, Task<TableData<CharacterDTO>>>(GetCharacterList))"
+    T="CharacterDTO"
+    OnRowClick="OnRowSelected"
+    @ref="Table">
+    <ToolBarContent>Character List</ToolBarContent>
+    <HeaderContent>
+        <MudTh>Id</MudTh>
+        <MudTh><MudTableSortLabel SortLabel="Name" T="CharacterDTO">Name</MudTableSortLabel></MudTh>
+        <MudTh><MudTableSortLabel SortLabel="Age" T="CharacterDTO">Age</MudTableSortLabel></MudTh>
+    </HeaderContent>
+    <RowTemplate>
+        <MudTd DataLabel="Id">@context.CharacterId</MudTd>
+        <MudTd DataLabel="Name">@context.Name</MudTd>
+        <MudTd DataLabel="Age">@context.Age</MudTd>
+    </RowTemplate>
+    <PagerContent>
+        <MudTablePager PageSizeOptions="pageSizeOptions"></MudTablePager>
+    </PagerContent>
+</MudTable>
