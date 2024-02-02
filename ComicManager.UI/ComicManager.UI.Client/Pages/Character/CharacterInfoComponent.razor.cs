@@ -1,4 +1,6 @@
-﻿using ComicManager.UI.Common.Service.Contract;
+﻿using ComicManager.Common.DTO.Character;
+using ComicManager.Common.DTO.Response;
+using ComicManager.UI.Common.Service.Contract;
 using Microsoft.AspNetCore.Components;
 
 namespace ComicManager.UI.Client.Pages.Character
@@ -11,15 +13,20 @@ namespace ComicManager.UI.Client.Pages.Character
         [Parameter]
         public Guid Id { get; set; }
 
+        public CharacterDTO Character { get; set; }
+
         protected override Task OnInitializedAsync()
         {
             return base.OnInitializedAsync();
         }
 
-        protected override Task OnParametersSetAsync()
+        protected override async Task OnParametersSetAsync()
         {
-            var tets = "A simple example here";
-            return base.OnParametersSetAsync();
+            // Call API to get character
+            TaskResult<CharacterDTO> result = await CharacterService.GetCharacter(Id);
+            Character = result.Data;
+
+            await base.OnParametersSetAsync();
         }
     }
 }

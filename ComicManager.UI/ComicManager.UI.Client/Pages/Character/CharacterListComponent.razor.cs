@@ -13,6 +13,8 @@ namespace ComicManager.UI.Client.Pages.Character
     {
         [Inject]
         public ICharacterService CharacterService { get; set; }
+        [Inject]
+        public NavigationManager NavigationManager { get; set; }
 
         public MudTable<CharacterDTO> Table { get; set; }
         public int[] pageSizeOptions = new int[] { 5, 10, 15 };
@@ -54,7 +56,7 @@ namespace ComicManager.UI.Client.Pages.Character
 
         public void OnRowSelected(TableRowClickEventArgs<CharacterDTO> eventArgs)
         {
-            var test = "";
+            NavigationManager.NavigateTo($"/character/{eventArgs.Item.CharacterId}");
         }
     }
 }
