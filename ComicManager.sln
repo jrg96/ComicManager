@@ -13,9 +13,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ComicManager.UI", "ComicMan
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ComicManager.UI.Client", "ComicManager.UI\ComicManager.UI.Client\ComicManager.UI.Client.csproj", "{19AF16EB-C361-4333-8A11-CAFB11CFB9EE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ComicManager.UI.Common", "ComicManager.UI.Common\ComicManager.UI.Common.csproj", "{BA0AA9A1-B2C2-4692-9980-4A610DD5C3E3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ComicManager.UI.Common", "ComicManager.UI.Common\ComicManager.UI.Common.csproj", "{BA0AA9A1-B2C2-4692-9980-4A610DD5C3E3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ComicManager.BusinessLogic", "ComicManager.BusinessLogic\ComicManager.BusinessLogic.csproj", "{6616B757-D264-426D-99A8-5D9B6ADFBFE1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ComicManager.BusinessLogic", "ComicManager.BusinessLogic\ComicManager.BusinessLogic.csproj", "{6616B757-D264-426D-99A8-5D9B6ADFBFE1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

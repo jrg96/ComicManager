@@ -4,23 +4,13 @@
 
 <MyMudProviders />
 
-@if(Character != null)
-{
-    <MudGrid>
-        <MudItem xs="12">
-            <MudText Align="Align.Center">Character Info (@Character.Name)</MudText>
-        </MudItem>
-        <MudItem xs="8">
-            <MudForm Model="Character">
-                <MudTextField T="string" Label="Name" Required="true"
-                    RequiredError="Please fill character name"
-                    HelperText="Choose a correct name"
-                    Value="Character.Name"></MudTextField>
-                <MudTextField T="int" Label="Age" Required="true"
-                    RequiredError="Please fill character age"
-                    HelperText="Choose an age"
-                    Value="Character.Age"></MudTextField>
-            </MudForm>
-        </MudItem>
-    </MudGrid>
-}
+
+<MudGrid>
+    <MudItem xs="3"></MudItem>
+    <MudItem xs="6">
+        <CharacterFormComponent 
+            Character="Character"
+            @rendermode="InteractiveAuto"></CharacterFormComponent>
+    </MudItem>
+    <MudItem xs="3"></MudItem>
+</MudGrid>

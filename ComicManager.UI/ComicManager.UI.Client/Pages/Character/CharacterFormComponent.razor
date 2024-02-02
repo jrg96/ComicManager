@@ -1,0 +1,42 @@
+﻿@using ComicManager.Common.Enum
+@inherits CharacterFormComponentBase
+
+<MyMudProviders />
+
+@if (Character != null)
+{
+    <MudPaper Class="pa-4" Elevation="4">
+        <MudGrid>
+            <MudItem xs="12">
+                <MudText Align="Align.Center" Style="font-weight: bold">Character Info (@Character.Name)</MudText>
+            </MudItem>
+            <MudItem xs="12">
+                <MudForm Model="Character">
+                    <MudTextField T="string" Label="Name" Required="true"
+                                    RequiredError="Please fill character name"
+                                    HelperText="Choose a correct name"
+                                    Value="Character.Name"
+                                    Disabled="@(Action == FormActionEnum.View)"></MudTextField>
+                    <MudTextField T="int" Label="Age" Required="true"
+                                    RequiredError="Please fill character age"
+                                    HelperText="Choose an age"
+                                    Value="Character.Age"
+                                    Disabled="@(Action == FormActionEnum.View)"></MudTextField>
+
+                    <div class="d-flex justify-end gap-4">
+                        @if(Action == FormActionEnum.View)
+                        {
+                            <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="OnEditBtnClick">Edit</MudButton>
+                            <MudButton Variant="Variant.Filled" Color="Color.Secondary">Delete</MudButton>
+                        }
+                        else if(Action == FormActionEnum.Edit)
+                        {
+                            <MudButton Variant="Variant.Filled" Color="Color.Primary">Save</MudButton>
+                            <MudButton Variant="Variant.Filled" Color="Color.Secondary">Cancel</MudButton>
+                        }
+                    </div>
+                </MudForm>
+            </MudItem>
+        </MudGrid>
+    </MudPaper>
+}
