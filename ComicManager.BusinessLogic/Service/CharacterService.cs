@@ -64,5 +64,13 @@ namespace ComicManager.BusinessLogic.Service
                 Data = data.Select(character => _mapper.Map<CharacterDTO>(character)).ToList()
             };
         }
+
+        public async Task<CharacterDTO> UpdateCharacter(CharacterDTO characterDTO)
+        {
+            Character character = _mapper.Map<Character>(characterDTO);
+            await _characterRepository.UpdateAsync(character);
+            await _characterRepository.SaveAsync();
+            return characterDTO;
+        }
     }
 }

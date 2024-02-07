@@ -6,6 +6,7 @@ namespace ComicManager.BusinessLogic.Service.Contract
     public interface ICharacterService
     {
         Task<CharacterDTO> CreateCharacter(CreateCharacterDTO createCharacterDTO);
+        Task<CharacterDTO> UpdateCharacter(CharacterDTO characterDTO);
         Task<CharacterDTO> GetCharacterById(Guid id);
         Task<PageDTO<CharacterDTO>> GetCharacterList(GetCharacterListDTO getCharacterListDTO);
     }

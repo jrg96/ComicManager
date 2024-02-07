@@ -8,6 +8,7 @@ namespace ComicManager.UI.Common.Service.Contract
     {
         Task<TaskResult<CharacterDTO>> GetCharacter(Guid id);
         Task<TaskResult<CharacterDTO>> CreateCharacter(CreateCharacterDTO createCharacterDTO);
+        Task<TaskResult<CharacterDTO>> UpdateCharacter(CharacterDTO characterDTO);
         Task<TaskResult<PageDTO<CharacterDTO>>> GetCharacterList(GetCharacterListDTO getCharacterListDTO);
     }
 }

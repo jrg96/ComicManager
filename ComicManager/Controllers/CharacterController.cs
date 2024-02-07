@@ -80,5 +80,26 @@ namespace ComicManager.API.Controllers
 
             return Ok(result);
         }
+
+        [HttpPut("")]
+        public async Task<IActionResult> UpdateCharacter(CharacterDTO characterDTO)
+        {
+            TaskResult<CharacterDTO> result = new TaskResult<CharacterDTO>();
+
+            try
+            {
+                CharacterDTO character = await _characterService.UpdateCharacter(characterDTO);
+
+                result.Successfull = true;
+                result.Data = character;
+            }
+            catch(Exception e)
+            {
+                result.Successfull = false;
+                result.ErroList.Append("There was an error while updating the character: " + e.ToString());
+            }
+            return null;
+        }
+
     }
 }

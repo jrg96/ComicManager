@@ -11,6 +11,7 @@ namespace ComicManager.API.Configuration
         {
             CreateMap<Character, CharacterDTO>();
             CreateMap<CreateCharacterDTO, Character>();
+            CreateMap<CharacterDTO, Character>();
 
             CreateMap<Comic, ComicDTO>();
             CreateMap<CreateComicDTO, Comic>();

@@ -63,5 +63,20 @@ namespace ComicManager.UI.Common.Service
 
             return null;
         }
+
+        public async Task<TaskResult<CharacterDTO>> UpdateCharacter(CharacterDTO characterDTO)
+        {
+            RestRequest request = new RestRequest($"{_controller}");
+            request.AddBody(characterDTO, ContentType.Json);
+
+            RestResponse<TaskResult<CharacterDTO>> response = await _restClient.ExecutePutAsync<TaskResult<CharacterDTO>>(request);
+
+            if (response.IsSuccessStatusCode)
+            {
+                return response.Data;
+            }
+
+            return null;
+        }
     }
 }
