@@ -29,6 +29,11 @@ namespace ComicManager.UI.Client.Components.Character
         [Parameter]
         public FormActionEnum Action { get; set; } = FormActionEnum.View;
 
+        /*
+         * Private variables
+         */
+        protected CharacterDTO _character;
+
         protected override Task OnInitializedAsync()
         {
             return base.OnInitializedAsync();
@@ -65,14 +70,15 @@ namespace ComicManager.UI.Client.Components.Character
 
         protected void OnEditBtnClick(MouseEventArgs args)
         {
+            _character = (CharacterDTO)Character.Clone();
             Action = FormActionEnum.Edit;
         }
 
-        protected void OnCancelBtnClick(MouseEventArgs args)
+        protected async Task OnCancelBtnClick(MouseEventArgs args)
         {
             DialogParameters dialogParams = new DialogParameters()
             {
-                ["Text"] = "Some Sample Text here"
+                ["Text"] = "Are you sure you want to cancel changes?"
             };
 
             DialogOptions options = new DialogOptions()
@@ -82,7 +88,12 @@ namespace ComicManager.UI.Client.Components.Character
                 FullWidth = true,
             };
 
-            DialogService.Show<YesNoDialogComponent>("Some Sample Dialog", dialogParams, options);
+            var result = await DialogService.Show<YesNoDialogComponent>("Cancel changes", dialogParams, options).Result;
+            if (!result.Cancelled && bool.TryParse(result.Data.ToString(), out bool resultbool))
+            {
+                Action = FormActionEnum.View;
+                Character = _character;
+            }
         }
     }
 }

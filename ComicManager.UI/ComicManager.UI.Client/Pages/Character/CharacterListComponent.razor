@@ -9,7 +9,7 @@
 
 @foreach((string msg, Severity severity) in Messages)
 {
-    <MudAlert Severity="severity">@msg</MudAlert>
+    <MudAlert Severity="severity" Variant="Variant.Filled">@msg</MudAlert>
 }
 
 <MudTable ServerData="@(new Func<TableState, Task<TableData<CharacterDTO>>>(GetCharacterList))"
