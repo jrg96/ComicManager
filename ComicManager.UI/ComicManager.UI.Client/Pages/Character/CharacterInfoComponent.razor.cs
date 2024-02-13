@@ -1,11 +1,12 @@
 ﻿using ComicManager.Common.DTO.Character;
 using ComicManager.Common.DTO.Response;
+using ComicManager.UI.Client.Components.Common;
 using ComicManager.UI.Common.Service.Contract;
 using Microsoft.AspNetCore.Components;
 
 namespace ComicManager.UI.Client.Pages.Character
 {
-    public class CharacterInfoComponentBase : ComponentBase
+    public class CharacterInfoComponentBase : BasePage
     {
         [Inject]
         protected ICharacterService CharacterService { get; set; }

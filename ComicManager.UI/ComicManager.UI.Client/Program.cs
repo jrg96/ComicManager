@@ -10,5 +10,6 @@ builder.Services.AddMudServices();
 
 // Custom Service implementation
 builder.Services.AddSingleton<ICharacterService, CharacterService>();
+builder.Services.AddSingleton<IMessageService, MessageService>();
 
 await builder.Build().RunAsync();

@@ -3,13 +3,14 @@ using ComicManager.Common.DTO.Character;
 using ComicManager.Common.DTO.Request;
 using ComicManager.Common.DTO.Response;
 using ComicManager.Common.Enum;
+using ComicManager.UI.Client.Components.Common;
 using ComicManager.UI.Common.Service.Contract;
 using Microsoft.AspNetCore.Components;
 using MudBlazor;
 
 namespace ComicManager.UI.Client.Pages.Character
 {
-    public class CharacterListComponentBase : ComponentBase
+    public class CharacterListComponentBase : BasePage
     {
         [Inject]
         public ICharacterService CharacterService { get; set; }

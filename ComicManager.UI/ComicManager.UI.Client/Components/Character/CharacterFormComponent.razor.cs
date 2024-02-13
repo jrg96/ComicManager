@@ -18,7 +18,10 @@ namespace ComicManager.UI.Client.Components.Character
         IDialogService DialogService { get; set; }
 
         [Inject]
-        ISnackbar SnackbarService { get; set; }
+        NavigationManager NavigationManager { get; set; }
+
+        [Inject]
+        IMessageService MessageService { get; set; }
 
         [Parameter]
         public CharacterDTO Character { get; set; }
@@ -50,12 +53,14 @@ namespace ComicManager.UI.Client.Components.Character
 
             if (result != null && !result.Successfull)
             {
-                SnackbarService.Add(string.Join(",", result.ErroList), Severity.Error);
+                MessageService.AddMessage(string.Join(",", result.ErroList), MessagePriorityEnum.Error);
             }
             else
             {
-                SnackbarService.Add("Character Added/Updated successfully");
+                MessageService.AddMessage("Character Added/Updated successfully", MessagePriorityEnum.Info);
             }
+
+            NavigationManager.NavigateTo("/characters");
         }
 
         protected void OnEditBtnClick(MouseEventArgs args)

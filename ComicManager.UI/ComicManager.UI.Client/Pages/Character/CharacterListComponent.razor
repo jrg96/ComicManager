@@ -7,6 +7,11 @@
 
 <MyMudProviders />
 
+@foreach((string msg, Severity severity) in Messages)
+{
+    <MudAlert Severity="severity">@msg</MudAlert>
+}
+
 <MudTable ServerData="@(new Func<TableState, Task<TableData<CharacterDTO>>>(GetCharacterList))"
     T="CharacterDTO"
     OnRowClick="OnRowSelected"

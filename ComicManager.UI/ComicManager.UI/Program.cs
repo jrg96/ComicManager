@@ -17,6 +17,7 @@ builder.Services.AddMudServices();
 
 // Add Custom Services
 builder.Services.AddScoped<ICharacterService, CharacterService>();
+builder.Services.AddScoped<IMessageService, MessageService>();
 
 var app = builder.Build();
 
